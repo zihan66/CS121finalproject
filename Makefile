@@ -23,7 +23,7 @@ LDFLAGS = $(BASEFLAGS) $(shell fltk-config --use-images --ldflags)
 all: $(TARGET)
 
 $(TARGET): $(OBJS) $(LIB)
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -I$(LIBDIR) -c -o $@ $^
