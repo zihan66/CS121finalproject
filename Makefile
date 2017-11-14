@@ -2,7 +2,8 @@
 CC = $(shell fltk-config --cxx)
 SRCS = StartButton.cpp
 OBJS = ${SRCS:.cpp=.o}
-BASEFLAGS = -g -Wall -Wextra -std=c++11 -Wno-unused-parameter
+BASEFLAGS = -g -Wall -Wextra -std=c++11 -Wno-unused-parameter -w
+# BASEFLAGS += -pedantic -fsanitize=address,undefined
 TARGET = main
 
 # Generate objects and FLTK library
