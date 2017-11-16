@@ -2,6 +2,8 @@
 #include "Graph.h"
 #include "Window.h"
 #include "Point.h"
+#include <iostream>
+#include <fstream>
 struct Lines_window : Graph_lib::Window {
     Lines_window(Point xy, int w, int h, const string& title);
 
@@ -17,42 +19,50 @@ private:
     Image i;
     Image con;
     Image page;
-	
+
     Button Continue_;
     Button BACK_;
-	
+
     Button beg_;
     Button inter_;
     Button ad_;
     Button ex_;
-	
-	Vector<int> x;
-	Vector<int> y;
-	Vector_ref<Button> buttons; // vector of buttons
-	
-	static void cb_start(Address, Address);
+
+    In_box username;
+    //In_box date;
+    Out_box score;
+    int step;
+
+    bool putton_pushed1;
+    Vector<int> x;
+    Vector<int> y;
+    Vector_ref<Button> buttons; // vector of buttons
+
+    static void cb_start(Address, Address);
     void start();
-     
-    static void cb_goback(Address,Address); 	 
+
+    static void cb_goback(Address, Address);
     void goback();
-    
-	static void cb_difficulty(Address,Address);
+
+    static void cb_difficulty(Address, Address);
     void difficulty();
-	
-	void g(int btn); // game algorithm function
-	
-	static void cb_exit(Address,Address);
-	void exit();
-	
-	static void cb_beg(Address,Address);
-	void beg();
-	
-	static void cb_inter(Address,Address);
-	void inter();
-	
-	static void cb_ad(Address,Address);
-	void ad();
-	
-	static void cb_ex(Address,Address);
-	void ex();
+
+    void g(int btn); // game algorithm function
+
+    static void cb_exit(Address, Address);
+    void exit();
+
+    static void cb_beg(Address, Address);
+    void beg();
+
+    static void cb_inter(Address, Address);
+    void inter();
+
+    static void cb_ad(Address, Address);
+    void ad();
+
+    static void cb_ex(Address, Address);
+    void ex();
+
+    void Input();
 };
