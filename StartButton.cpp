@@ -245,17 +245,17 @@ void Lines_window::g(int btn)
     else {
 
         // when user click one button, program will check if the button is around blank one. If so, they will exchange position.
-        if (abs(buttons[btn].loc.x - buttons[0].loc.x) == 100 && abs(buttons[btn].loc.y - buttons[0].loc.y) == 0) {
-            int tempx = buttons[btn].loc.x;
-            buttons[btn].move(buttons[0].loc.x - buttons[btn].loc.x, 0);
-            buttons[0].move(tempx - buttons[0].loc.x, 0);
+        if (abs(buttons[buttons.size()-16+btn].loc.x - buttons[buttons.size()-16].loc.x) == 100 && abs(buttons[buttons.size()-16+btn].loc.y - buttons[buttons.size()-16].loc.y) == 0) {
+            int tempx = buttons[buttons.size()-16+btn].loc.x;
+            buttons[buttons.size()-16+btn].move(buttons[buttons.size()-16].loc.x - buttons[buttons.size()-16+btn].loc.x, 0);
+            buttons[buttons.size()-16].move(tempx - buttons[buttons.size()-16].loc.x, 0);
             step++;
         }
 
-        else if (abs(buttons[btn].loc.y - buttons[0].loc.y) == 100 && abs(buttons[btn].loc.x - buttons[0].loc.x) == 0) {
-            int tempy = buttons[btn].loc.y;
-            buttons[btn].move(0, buttons[0].loc.y - buttons[btn].loc.y);
-            buttons[0].move(0, tempy - buttons[0].loc.y);
+        else if (abs(buttons[buttons.size()-16+btn].loc.y - buttons[buttons.size()-16].loc.y) == 100 && abs(buttons[buttons.size()-16+btn].loc.x - buttons[buttons.size()-16].loc.x) == 0) {
+            int tempy = buttons[buttons.size()-16+btn].loc.y;
+            buttons[buttons.size()-16+btn].move(0, buttons[buttons.size()-16].loc.y - buttons[buttons.size()-16+btn].loc.y);
+            buttons[buttons.size()-16].move(0, tempy - buttons[buttons.size()-16].loc.y);
             step++;
         }
     }
