@@ -9,13 +9,8 @@ struct Lines_window : Graph_lib::Window {
 
 private:
     Button start_;
-    Text game_title;
-    Text names;
-    Text team_num;
-    Text section_num;
 
     Image c;
-    Image b;
     Image i;
     Image con;
     Image page;
@@ -27,30 +22,39 @@ private:
     Button inter_;
     Button ad_;
     Button ex_;
-
+	Button win;
+    Button Hint;
+    Button Quit;
+	
+    Text moves;
+    Text final_score;
+    
     In_box username;
     //In_box date;
     Out_box score;
     int step;
-
-    bool putton_pushed1;
-    Vector<int> x;
-    Vector<int> y;
+    int orig_moves;
+	Vector<int> data;
     Vector_ref<Button> buttons; // vector of buttons
-
+    
+    static void cb_quit(Address, Address);
+    void quit();
+	
     static void cb_start(Address, Address);
     void start();
+	
+	static void cb_win(Address,Address);
 
     static void cb_goback(Address, Address);
     void goback();
 
     static void cb_difficulty(Address, Address);
     void difficulty();
-
+    
+	static void cb_hint(Address, Address);
+	void hint();
+	
     void g(int btn); // game algorithm function
-
-    static void cb_exit(Address, Address);
-    void exit();
 
     static void cb_beg(Address, Address);
     void beg();
