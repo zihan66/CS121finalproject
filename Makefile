@@ -1,6 +1,6 @@
 # Configuration
 CC = $(shell fltk-config --cxx)
-SRCS = StartButton.cpp
+SRCS = StartButton.cpp game_data.cpp
 OBJS = ${SRCS:.cpp=.o}
 BASEFLAGS = -g -Wall -Wextra -std=c++11 -Wno-unused-parameter -w
 # BASEFLAGS += -pedantic -fsanitize=address,undefined
